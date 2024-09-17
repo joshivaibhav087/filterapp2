@@ -30,7 +30,7 @@ const columns = [
     { field: 'allotted_quota', headerName: 'Allotted Quota', width: 150 },
     { field: 'course', headerName: 'Course', width: 300 },
     { field: 'allotted_institute', headerName: 'Allotted Institute', width: 400 },
-    { field: 'alloted_category', headerName: 'Alloted Category', width: 120 },
+    { field: 'allotted_category', headerName: 'Allotted Category', width: 120 },
     { field: 'candidate_category', headerName: 'Candidate Category', width: 150 },
     { field: 'remarks', headerName: 'Remarks', width: 120 },
 ];
@@ -67,7 +67,7 @@ export default function DataTable() {
         "allotted_quota": "",
         "allotted_institute": "",
         "course": "",
-        "alloted_category": "",
+        "allotted_category": "",
         "candidate_category": "",
         "remarks": ""
     });
@@ -98,8 +98,8 @@ export default function DataTable() {
             if (!tempCourseOptions.includes(row.course)) {
                 tempCourseOptions.push(row.course);
             }
-            if (!tempAllotedCategoryOptions.includes(row.alloted_category)) {
-                tempAllotedCategoryOptions.push(row.alloted_category);
+            if (!tempAllotedCategoryOptions.includes(row.allotted_category)) {
+                tempAllotedCategoryOptions.push(row.allotted_category);
             }
             if (!tempCandidateCategoryOptions.includes(row.candidate_category)) {
                 tempCandidateCategoryOptions.push(row.candidate_category);
@@ -132,27 +132,41 @@ export default function DataTable() {
             if (selectedOptions.allotted_quota === '') { return true; }
             return row.allotted_quota === selectedOptions.allotted_quota;
         })
+        console.log(tempFilteredRows)
+
         tempFilteredRows = tempFilteredRows.filter(row => {
             if (selectedOptions.allotted_institute === '') { return true; }
             return row.allotted_institute === selectedOptions.allotted_institute;
         })
+        console.log(tempFilteredRows)
+
         tempFilteredRows = tempFilteredRows.filter(row => {
             if (selectedOptions.course === '') { return true; }
             return row.course === selectedOptions.course;
         })
+        console.log(tempFilteredRows)
+
         tempFilteredRows = tempFilteredRows.filter(row => {
             if (selectedOptions.alloted_category === '') { return true; }
-            return row.alloted_category === selectedOptions.alloted_category;
+            console.log(row)
+            return row.alloted_category === selectedOptions.allotted_category;
         })
+        console.log(tempFilteredRows)
+        console.log(selectedOptions)
+
         tempFilteredRows = tempFilteredRows.filter(row => {
             if (selectedOptions.candidate_category === '') { return true; }
             return row.candidate_category === selectedOptions.candidate_category;
         })
+        console.log(tempFilteredRows)
+
         tempFilteredRows = tempFilteredRows.filter(row => {
             if (selectedOptions.remarks === '') { return true; }
             return row.remarks === selectedOptions.remarks;
         })
+
         console.log(tempFilteredRows)
+        console.log("*********************************")
         updateTableRows(tempFilteredRows);
         setLoading(false)
     }
@@ -192,8 +206,8 @@ export default function DataTable() {
                         <Item>
                             <Dropdown
                                 label="Select Alloted Category"
-                                value={selectedOptions.alloted_category}
-                                handleChange={(e) => { updateOption(e, "alloted_category") }}
+                                value={selectedOptions.allotted_category}
+                                handleChange={(e) => { updateOption(e, "allotted_category") }}
                                 options={allotedCategoryOptions} />
                         </Item>
                     </Grid>
