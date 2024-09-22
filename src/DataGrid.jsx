@@ -147,9 +147,9 @@ export default function DataTable() {
         console.log(tempFilteredRows)
 
         tempFilteredRows = tempFilteredRows.filter(row => {
-            if (selectedOptions.alloted_category === '') { return true; }
+            if (selectedOptions.allotted_category === '') { return true; }
             console.log(row)
-            return row.alloted_category === selectedOptions.allotted_category;
+            return row.allotted_category === selectedOptions.allotted_category;
         })
         console.log(tempFilteredRows)
         console.log(selectedOptions)

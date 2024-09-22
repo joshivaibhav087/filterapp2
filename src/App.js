@@ -38,11 +38,11 @@ function App() {
       return response.json();
     }
 
-    postData("https://filter-bdb01-default-rtdb.firebaseio.com/visits.json", { timestamp: new Date(), appCodeName : navigator.appCodeName, appName : navigator.appName, userAgent : navigator.userAgent }).then((data) => {
+    postData("https://sandeep-filter-default-rtdb.firebaseio.com/visits.json", { timestamp: new Date(), appCodeName : navigator.appCodeName, appName : navigator.appName, userAgent : navigator.userAgent }).then((data) => {
       console.log(data); 
     });
 
-    getData("https://filter-bdb01-default-rtdb.firebaseio.com//visits.json").then((data) => {
+    getData("https://sandeep-filter-default-rtdb.firebaseio.com/visits.json").then((data) => {
       // console.log(data); 
       setCount(Object.keys(data).length);
     });
@@ -51,7 +51,7 @@ function App() {
   }, [])
   return (
     <div className="App">
-      <h1 style={{textAlign : 'center'}}>NEET-PG Counselling Seats Allotment -2024 Round 2 | Result Filter Application</h1>
+      <h1 style={{textAlign : 'center'}}>NEET-PG Counselling Seats Allotment -2024 Round 1 | Result Filter Application</h1>
         <DataGridDemo />
       <h6 style={{textAlign : 'center'}}>Managed by Sandeep and Manish, The Application is meant for fair use only. For Feedback/comments mail us at redsoiltechnologies7@gmail.com </h6>
       <h6 style={{textAlign : 'center'}}>Visit Counter: {count}</h6>
